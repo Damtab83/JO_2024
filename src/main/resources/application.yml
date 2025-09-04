@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: JO2024
+  datasource:
+    url: jdbc:mariadb://mysql-damtab.alwaysdata.net/damtab_jo2024
+    username: damtab_jo2024
+    password: Bachelor_jo2024
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
