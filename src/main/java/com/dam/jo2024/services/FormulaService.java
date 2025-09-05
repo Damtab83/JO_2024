@@ -35,4 +35,23 @@ public class FormulaService {
         }
         return formulaRepository.save(formula);
     }
+
+    public Boolean deleteFormula(Long id) {
+        Boolean toDelete = formulaRepository.existsById(id);
+        if(toDelete) {
+            formulaRepository.deleteById(id);
+        }
+        return toDelete;
+    }
+
+    public Formula updateFormula(Long id, Formula newFormula) {
+        Formula oldFormula = this.getFormulaById(id);
+        if(oldFormula != null) {
+            oldFormula.setFormulaName(newFormula.getFormulaName());
+            oldFormula.setFormulaPrice(newFormula.getFormulaPrice());
+            oldFormula.setTicketNumber(newFormula.getTicketNumber());
+            oldFormula.setDescription(newFormula.getDescription());
+        }
+        return formulaRepository.save(oldFormula);
+    }
 }

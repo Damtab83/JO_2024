@@ -45,6 +45,9 @@ public class Formula {
         tickets.remove(ticket);
         ticket.setFormula(null);
     }
+    @ManyToOne
+    @JoinColumn(name = "purchase_id")
+    private Purchase purchase;
 
     @Override
     public String toString() {
