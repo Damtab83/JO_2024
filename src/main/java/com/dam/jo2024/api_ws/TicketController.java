@@ -1,7 +1,6 @@
-package com.dam.jo2024.ws;
+package com.dam.jo2024.api_ws;
 
 import com.dam.jo2024.pojo.Ticket;
-import com.dam.jo2024.pojo.User;
 import com.dam.jo2024.services.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ public class TicketController {
     @GetMapping("{id}")
     public ResponseEntity<Object>getTicketById(@PathVariable Long id) {
         Ticket myTicket = ticketService.getTicketById(id);
-        return myTicket ==null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() :
+        return myTicket == null ? ResponseEntity.status(HttpStatus.NOT_FOUND).build() :
                 ResponseEntity.status(HttpStatus.OK).body(myTicket);
     }
 

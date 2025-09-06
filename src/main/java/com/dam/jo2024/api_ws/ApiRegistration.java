@@ -1,4 +1,4 @@
-package com.dam.jo2024.ws;
+package com.dam.jo2024.api_ws;
 
 public interface ApiRegistration {
 

@@ -1,4 +1,4 @@
-package com.dam.jo2024.ws;
+package com.dam.jo2024.api_ws;
 
 import com.dam.jo2024.pojo.Formula;
 import com.dam.jo2024.services.FormulaService;
