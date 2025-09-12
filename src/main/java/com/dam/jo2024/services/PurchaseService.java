@@ -38,7 +38,6 @@ public class PurchaseService {
             oldPurchase.setQuantity(newPurchase.getQuantity());
             oldPurchase.setValidation(newPurchase.isValidation());
 
-            // ⚡ Si tu veux mettre à jour aussi les formules :
             oldPurchase.getFormules().clear();
             if (newPurchase.getFormules() != null) {
                 newPurchase.getFormules().forEach(oldPurchase::addFormula);

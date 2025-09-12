@@ -41,6 +41,7 @@ public class TicketService {
         return toDelete;
     }
 
+    // The second part of the authentication key containing the ticket date
     public String keyAuth(Ticket ticket) {
 
         DateTimeFormatter myDateformat = DateTimeFormatter.ofPattern("HH:mm:ss");

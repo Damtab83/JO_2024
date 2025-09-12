@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Displaying CRUD of the Users for the API
 @RestController
 @RequestMapping(ApiRegistration.REST_API + ApiRegistration.REST_USER)
 public class UserController {

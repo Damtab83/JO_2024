@@ -22,6 +22,9 @@ public class UserService {
     }
 
     public User createUser(User user) {
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new RuntimeException("Email déjà utilisé");
+        }
         if(user.getRole() == Role.ADMIN) {
             boolean adminExists = userRepository.existsByRole(Role.ADMIN);
             if(adminExists) {
@@ -32,6 +35,7 @@ public class UserService {
             user.setRole(Role.CLIENT);
             user.setUserKey(AuthKey(user));
         }
+        user.setUserKey(AuthKey(user));
         return userRepository.save(user);
     }
 
@@ -63,12 +67,13 @@ public class UserService {
         return toDelete;
     }
 
+    // The first part of the authentication key containing the client's identification
     public String AuthKey(User user) {
         String myUserFirstName = user.getFirstName().toLowerCase().trim();
-        myUserFirstName.substring(0, myUserFirstName.length()/2);
+        String partFirstName = myUserFirstName.substring(0, myUserFirstName.length()/2);
         String myUserLastName = user.getLastName().toLowerCase().trim();
-        myUserLastName.substring(0, myUserLastName.length()/2);
+        String partLastName = myUserLastName.substring(0, myUserLastName.length()/2);
 
-        return myUserFirstName + user.getEmail()+myUserLastName;
+        return partFirstName + user.getEmail()+ partLastName;
     }
 }
